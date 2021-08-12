@@ -87,7 +87,7 @@ class Api {
 }
 
 const api = new Api ({
-  url: 'api.azat.nomoredomains.club/',
+  url: 'https://api.azat.nomoredomains.club/',
   headers: {
     Authorization: `Bearer ${localStorage.getItem('jwt')}`,
     "content-type": "application/json"
