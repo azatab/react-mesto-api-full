@@ -1,5 +1,5 @@
 import React from 'react'
-import PopupWithoutForm from './PopupWithForm'
+import PopupWithoutForm from './PopupWithoutForm'
 
 const InfoTooltip = ({message, ...rest}) => {
   return (
