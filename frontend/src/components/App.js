@@ -62,7 +62,7 @@ const App = () => {
       setCurrentUser(userData)
     })
     .catch((err) => console.log(err))
-  }, [])
+  }, [loggedIn])
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(id => id === currentUser._id)
