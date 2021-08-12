@@ -51,7 +51,8 @@ const App = () => {
           console.log(`Ошибка - ${err}`)
         })
     }
-    // eslint-disable-next-line
+    return;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   React.useEffect(() => {

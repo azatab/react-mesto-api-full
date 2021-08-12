@@ -13,13 +13,19 @@ class Api {
   getCards() {
     return fetch(`${this._url}cards`, {
       method: 'GET',
-      headers: this._headers
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
     }).then(this._handleServerResponse)
   }
 
   getUserInfo() {
     return fetch(`${this._url}users/me`, {
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
       method: 'GET'
     }).then(this._handleServerResponse)
   }
@@ -27,7 +33,10 @@ class Api {
   setUserInfo(data) {
     return fetch(`${this._url}users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
       body: JSON.stringify({
         name: data.name,
         about: data.about
@@ -38,7 +47,10 @@ class Api {
   loadCard(data) {
     return fetch(`${this._url}cards`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
       body: JSON.stringify({
         name: data.name,
         link: data.link
@@ -49,7 +61,10 @@ class Api {
   deleteCard(id) {
     return fetch(`${this._url}cards/${id}`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
     }).then(this._handleServerResponse);
   }
 
@@ -70,7 +85,10 @@ class Api {
   setUserAvatar(data) {
     return fetch(`${this._url}users/me/avatar`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
       body: JSON.stringify({
         avatar: data.avatar
       })
@@ -81,7 +99,10 @@ class Api {
     const meth = owner ? "PUT" : "DELETE"
     return fetch(`${this._url}cards/likes/${id}`, {
       method: meth,
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
     }).then(this._handleServerResponse);
   }
 }

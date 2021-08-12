@@ -1,6 +1,6 @@
 const BASE_URL = 'https://api.azat.nomoredomains.club'
 
-const handleResponse = (res) => res.ok ? res.json() : Promise.reject(`Ошибка - ${res.status}`)
+const handleResponse = (res) => res.ok ? res.json() : Promise.reject(`Ошибка - ${res.status} - ${res.statusText}`)
   
 export const register = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {
