@@ -38,6 +38,8 @@ const App = () => {
 
   React.useEffect(() => {
     const jwt = localStorage.getItem('jwt')
+    if (!jwt) { return }
+
     if (jwt) {
       auth.checkToken(jwt)
         .then(res => {
@@ -53,15 +55,17 @@ const App = () => {
     }
     return;
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [loggedIn])
 
   React.useEffect(() => {
-    Promise.all([api.getCards(), api.getUserInfo()])
-    .then(([cardsObj, userData]) => {
-      setCards(cardsObj)
-      setCurrentUser(userData)
-    })
-    .catch((err) => console.log(err))
+    if (loggedIn)  {
+      Promise.all([api.getCards(), api.getUserInfo()])
+      .then(([cardsObj, userData]) => {
+        setCards(cardsObj)
+        setCurrentUser(userData)
+      })
+      .catch((err) => console.log(err))
+    }
   }, [loggedIn])
 
   function handleCardLike(card) {
