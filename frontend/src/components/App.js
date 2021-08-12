@@ -65,7 +65,7 @@ const App = () => {
   }, [])
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(item => item._id === currentUser._id)
+    const isLiked = card.likes.some(id => id === currentUser._id)
     api.changeLikeCardStatus(card._id, !isLiked)
     .then((newCard) => {
       setCards(state => state.map(c => c._id === card._id ? newCard : c))
@@ -163,7 +163,7 @@ const App = () => {
       .then((data) => {
         if (data) {
           localStorage.setItem('jwt', data.jwt)
-          setEmail(data.data.email)
+          setEmail(data.email)
         }
         history.push('/signin')
         setMessage({
