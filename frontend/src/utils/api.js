@@ -97,7 +97,7 @@ class Api {
 
   changeLikeCardStatus(id, owner) {
     const meth = owner ? "PUT" : "DELETE"
-    return fetch(`${this._url}cards/likes/${id}`, {
+    return fetch(`${this._url}cards/likes/${id}/likes`, {
       method: meth,
       headers: {
         ...this._headers,
