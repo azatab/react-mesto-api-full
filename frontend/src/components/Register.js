@@ -1,6 +1,5 @@
 import React from 'react'
-// import SignForm from './SignForm'
-import PopupWithoutForm from './PopupWithoutForm'
+import SignForm from './SignForm'
 
 const Register = ({handleRegister}) => {
   const [data, setData] = React.useState({
@@ -23,7 +22,7 @@ const Register = ({handleRegister}) => {
   }
   
   return (
-    <PopupWithoutForm 
+    <SignForm 
       title = {'Регистрация'}
       buttonLabel = {'Зарегистрироваться'}
       active = {'sign__text_active'}
