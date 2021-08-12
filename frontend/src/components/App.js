@@ -53,7 +53,7 @@ const App = () => {
     }
     return;
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loggedIn])
+  }, [])
 
   React.useEffect(() => {
     Promise.all([api.getCards(), api.getUserInfo()])
